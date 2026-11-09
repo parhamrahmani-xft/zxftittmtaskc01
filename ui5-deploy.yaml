@@ -1,0 +1,17 @@
+specVersion: "4.0"
+metadata:
+  name: zpr.ui5.it.tm.core
+type: library
+builder:
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateLibraryPreload
+      configuration:
+        target:
+          url: https://vhcals4xci.xft.de:44300
+          client: '100'
+        app:
+          name: ZPR_UI5_IT_CORE
+          description: Task Manager Core Library Parham
+          package: ZPR_IT_UI5
+          transport: S4XK900398 # S4XK900398       DELACRUZE    DO NOT TRANSPORT (UI5 IT TEST) - S4XK900406   RAHMANIP     Entwickl./Korrektur

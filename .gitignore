@@ -1,0 +1,36 @@
+# Dependencies and build
+node_modules/
+dist/
+.scp/
+Makefile*.mta
+mta_archives
+mta-*
+resources
+*.zip
+.*_mta_build_tmp
+_template_orig/
+.tmp/
+coverage/
+*.ps1
+build_tmp/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+*.orig
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
