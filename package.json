@@ -1,8 +1,12 @@
 {
+  // Project name 
   "name": "zxftittmtaskc01",
+  // Version of this project 
   "version": "0.0.1",
   "description": "ZPR UI5 IT Task Manager Core Library",
   "private": true,
+
+  // Tools needed for development (installed into node_modules by "npm install")
   "devDependencies": {
     "@ui5/cli": "^4.0.33",
     "@sap/ux-ui5-tooling": "1",
@@ -10,10 +14,16 @@
     "eslint": "^10",
     "rimraf": "^5.0.5"
   },
+
+  // Shortcuts: "npm start" or "npm run <name>" runs the command behind it
   "scripts": {
+    // Start local server (uses ui5.yaml) 
     "start": "fiori run --open \"/sap/bc/ui2/flp?sap-client=100&sap-language=DE#XFTTaskManager-display?recSpsId=ZPR_IT_UI5_SPS_TASK&rmsId=ZXFT_ROOT\"",
+    // Build the library into the folder build_tmp (used by deploy-lib.ps1)
     "build": "ui5 build --config=ui5.yaml --clean-dest --dest build_tmp",
+    // Check your JavaScript for errors and style problems
     "lint": "eslint ./",
+    // Build + deploy the library to the server via deploy-lib.ps1 PowerShell script
     "deploy": "powershell -ExecutionPolicy Bypass -File deploy-lib.ps1"
   }
 }

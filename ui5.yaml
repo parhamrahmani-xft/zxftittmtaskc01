@@ -1,20 +1,35 @@
+# Version of the UI5 Tooling config format
 specVersion: "4.0"
+
 metadata:
+  # Name of this project (same as in manifest.json / .library)
   name: zpr.ui5.it.tm.core
+
+# UI5 library
 type: library
+
+# Settings for the local dev server
 server:
   customMiddleware:
+
+    # 1) Serve your library from your local files
     - name: fiori-tools-servestatic
       afterMiddleware: compression
       configuration:
         paths:
+          # When the browser asks for this URL (= module_url in GET_UI5_COMPONENT)
           - path: /sap/bc/ui5_ui5/sap/zpr_ui5_it_core
+            # answer with the files from this local folder 
             src: src/zpr/ui5/it/tm/core
+
+    # 2) Send everything else to the SAP backend
     - name: fiori-tools-proxy
       afterMiddleware: fiori-tools-servestatic
       configuration:
+        # Check the backend's SSL certificate (false = do not ignore errors)
         ignoreCertErrors: false
         backend:
           - path: /sap
+            # is forwarded to this SAP system -> S4X
             url: https://vhcals4xci.xft.de:44300
             client: '100'
