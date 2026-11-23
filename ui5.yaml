@@ -2,3 +2,19 @@ specVersion: "4.0"
 metadata:
   name: zpr.ui5.it.tm.core
 type: library
+server:
+  customMiddleware:
+    - name: fiori-tools-servestatic
+      afterMiddleware: compression
+      configuration:
+        paths:
+          - path: /sap/bc/ui5_ui5/sap/zpr_ui5_it_core
+            src: src/zpr/ui5/it/tm/core
+    - name: fiori-tools-proxy
+      afterMiddleware: fiori-tools-servestatic
+      configuration:
+        ignoreCertErrors: false
+        backend:
+          - path: /sap
+            url: https://vhcals4xci.xft.de:44300
+            client: '100'
